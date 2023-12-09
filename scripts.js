@@ -19,6 +19,18 @@ document
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => res.json());
+    }).then((res) => {
+      if (selected === "free") {
+        dataLayer.push({
+          event: "Free plan",
+        });
+      }
+      if (selected === "adult") {
+        dataLayer.push({
+          event: "Adult plan",
+        });
+      }
+      return res.json();
+    });
     console.log(createdUser);
   });
