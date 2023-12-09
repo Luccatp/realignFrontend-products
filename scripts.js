@@ -19,18 +19,45 @@ document
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (selected === "free") {
-        dataLayer.push({
-          event: "Free plan",
-        });
-      }
-      if (selected === "adult") {
-        dataLayer.push({
-          event: "Adult plan",
-        });
-      }
-      return res.json();
-    });
+    })
+      .then((res) => {
+        if (selected === "free") {
+          dataLayer.push({
+            event: "Free plan",
+          });
+        }
+        if (selected === "adult") {
+          dataLayer.push({
+            event: "Adult plan",
+          });
+        }
+        return res.json();
+      })
+      .catch((err) => {
+        if (err.status === 409) {
+          var x = document.getElementById("snackbar");
+
+          // Add the "show" class to DIV
+          x.className = "show";
+
+          // After 3 seconds, remove the show class from DIV
+          setTimeout(function () {
+            x.className = x.className.replace("show", "");
+          }, 3000);
+        }
+        console.log(err);
+      });
+    if (createdUser.message) {
+      var x = document.getElementById("snackbar");
+
+      x.innerText = createdUser.message;
+      // Add the "show" class to DIV
+      x.className = "show";
+
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 3000);
+    }
     console.log(createdUser);
   });
