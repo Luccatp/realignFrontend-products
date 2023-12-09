@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap");
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Spline Sans", sans-serif;
+    min-height: 100vh;
+    background-color: #eaeef6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    margin-bottom: 10vh;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.card {
+    border-radius: 16px;
+    box-shadow: 0 30px 30px -25px rgba(65, 51, 183, .25);
+    max-width: 300px;
+}
+.card:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}
+.card:not(.free):hover {
+    box-shadow: 0 30px 30px 10px rgba(65, 51, 183, .5);
+}
+
+.card:not(.free).selected {
+    box-shadow: 0 30px 30px 10px rgba(65, 51, 183, .5);
+}
+
+.card.free.selected {
+    box-shadow: 0 30px 30px 10px rgba(73, 183, 51, 0.5);
+}
+
+.tag {
+    background-color: #f1eeff;
+    color: #6558d3;
+    font-weight: 600;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+}
+
+.tag.free {
+    background-color:  #ddffdc;
+    color: #479131;
+}
+.information {
+    background-color: #fff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+        font-size: 1.5rem;
+        color: #141b22;
+    }
+
+    .info {
+        color: #a0a0a0;
+    }
+
+    .button {
+        font: inherit;
+        line-height: 1;
+        background-color: #fff;
+        border: 2px solid #6558d3;
+        color: #6558d3;
+        padding: 0.5em 1em;
+        border-radius: 6px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2rem;
+        &:hover,
+        &:focus {
+            background-color: #6558d3;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    
+    .details {
+        display: flex;
+        gap: 1rem;
+        div {
+            padding: .75em 1em;
+            background-color: #f1eeff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column-reverse;
+            gap: .125em;
+            flex-basis: 50%;
+        }
+        
+        dt {
+            font-size: .875rem;
+            color: #a69fd6;
+        }
+        
+        dd {
+            color: #6558d3;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.plan {
+    padding: 10px;
+    background-color: #fff;
+    color: #917072;
+    
+    strong {
+        font-weight: 600;
+        color: #754D42;
+    }
+    
+    .inner {
+        padding: 20px;
+        padding-top: 40px;
+        background-color: #FFEDEC;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .pricing {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #FBC8BE;
+        border-radius: 99em 0 0 99em;
+        display: flex;
+        align-items: center;
+        padding: .625em .75em;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #754D42;
+        small {
+            color: #917072;
+            font-size: .75em;
+            margin-left: .25em;
+        }
+    }
+    
+    .title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #754D42;
+        & + * {
+            margin-top: .75rem;
+        }
+    }
+    
+    .info {
+        & + * {
+            margin-top: 1rem;
+        }
+    }
+    
+    .features {
+        display: flex;
+        flex-direction: column;
+        li {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        
+        .icon {
+            background-color: #1FCAC5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+    
+    button {
+        font: inherit;
+        background-color: #6558d3;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.125rem;
+        width: 100%;
+        border: 0;
+        padding: 1em;
+        &:hover,
+        &:focus {
+            background-color: #4133B7;
+        }
+    }
+}
+
+.features-table tbody {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.form-button {
+    font: inherit;
+    line-height: 1;
+    background-color: #fff;
+    border: 2px solid #6558d3;
+    color: #6558d3;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 2rem;
+    &:hover,
+    &:focus {
+        background-color: #6558d3;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .input-wrapper {
+        flex-direction: column;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+.input-middle {
+    height: 100%;
+}
+
+.form-paragraph {
+    font-size: 1.125rem;
+    color: #4d449c;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.form-input {
+    border: 1px solid #6558d3;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    font: inherit;
+    font-weight: 500;
+    color: #6558d3;
+    &:focus {
+        outline: none;
+        border-color: #4133B7;
+    }
+}
